@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter temperature value: ");
+        double temp = sc.nextDouble();
+        System.out.print("Enter unit (C/F/K): ");
+        char unit = sc.next().toUpperCase().charAt(0);
+
+        double celsius, fahrenheit, kelvin;
+
+        switch (unit) {
+            case 'C':
+                fahrenheit = (temp * 9 / 5) + 32;
+                kelvin = temp + 273.15;
+                System.out.println("Fahrenheit: " + fahrenheit);
+                System.out.println("Kelvin: " + kelvin);
+                break;
+            case 'F':
+                celsius = (temp - 32) * 5 / 9;
+                kelvin = celsius + 273.15;
+                System.out.println("Celsius: " + celsius);
+                System.out.println("Kelvin: " + kelvin);
+                break;
+            case 'K':
+                celsius = temp - 273.15;
+                fahrenheit = (celsius * 9 / 5) + 32;
+                System.out.println("Celsius: " + celsius);
+                System.out.println("Fahrenheit: " + fahrenheit);
+                break;
+            default:
+                System.out.println("Invalid unit!");
+        }
+    }
+}
